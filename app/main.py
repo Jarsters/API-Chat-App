@@ -7,7 +7,7 @@ import json
 import datetime
 
 # cred = credentials.Certificate("rnchatapplication-firebase-adminsdk-mo55t-5ee1e63565.json")
-cred = credentials.Certificate("C:\\Users/Asus/Downloads/appchat-3e29e-firebase-adminsdk-eoph8-d76544aa6e.json")
+cred = credentials.Certificate("appchat-3e29e-firebase-adminsdk-eoph8-d76544aa6e.json")
 app = firebase_admin.initialize_app(cred)
 # contoh_token = 'ciE5Vo8YRkyACyACnfTq_h:APA91bFGY4Hu-DF_FkpRltbe-D_kiGkCDM1tSMmIkgTGpZu_C9W_OC3bY6QOkuBmSIYPDka4_RZ0TXi2_R-QTaFw87Q6MrKPXUxP9CtUpNufwzr0GxfP2VyDolh6hXrtsadXCqd7JTV2'
 contoh_topic = "Sports"
