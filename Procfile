@@ -1,1 +1,1 @@
-web: gunicorn==20.0.4 wsgi
+web: gunicorn wsgi
