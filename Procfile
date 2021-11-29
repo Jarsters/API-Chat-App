@@ -1,1 +1,1 @@
-web: gunicorn
+web: gunicorn==20.0.4
