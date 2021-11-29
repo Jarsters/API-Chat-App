@@ -62,7 +62,7 @@ def send_message_token():
     return {"Response": resp, 'Data':data, 'Status':"Success"}
 
 @appf.route("/send-message-topic", methods=['POST'])
-def send_message_token():
+def send_message_topic():
     data_json = req.get_json(force=True)
     topic = data_json.get('topic') if data_json.get('topic') else contoh_topic
     message = data_json['message']
