@@ -1,4 +1,4 @@
-from flask import Flask, request as req
+from flask import Flask, request as req, render_template
 
 import firebase_admin
 from firebase_admin import credentials
@@ -16,7 +16,7 @@ appf = Flask(__name__)
 
 @appf.route('/')
 def index():
-    return "<h1>Hello World!</h1>"
+    return render_template('index.html')
 
 @appf.route("/send-message-token", methods=['POST'])
 def send_message():
