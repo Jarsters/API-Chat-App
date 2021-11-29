@@ -14,6 +14,10 @@ contoh_token = 'ciE5Vo8YRkyACyACnfTq_h:APA91bFGY4Hu-DF_FkpRltbe-D_kiGkCDM1tSMmIk
 
 appf = Flask(__name__)
 
+@appf.route('/')
+def index():
+    return "<h1>Hello World!</h1>"
+
 @appf.route("/send-message-token", methods=['POST'])
 def send_message():
     data_json = req.get_json(force=True)
