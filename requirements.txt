@@ -84,7 +84,6 @@ phonenumbers==8.12.9
 pickleshare==0.7.5
 Pillow==7.1.2
 pipenv==2018.11.26
-post==2019.4.13
 prompt-toolkit==3.0.18
 proto-plus==1.19.8
 protobuf==3.14.0
