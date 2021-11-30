@@ -42,10 +42,15 @@ def unsubscribe():
 @appf.route("/send-message-token", methods=['POST'])
 def send_message_token():
     data_json = req.get_json(force=True)
-    token = data_json.get('token') if data_json.get('token') else contoh_token
+    token = data_json['token'] if data_json['token'] else contoh_token
     message = data_json['message']
     title = data_json['title']
-    data = data_json['data']
+    nama = data_json['nama']
+    data = {
+        "title":title,
+        "message":message,
+        "nama":nama
+    }
     # time = data_json['time']
     # img = data_json['imagebase64']
     message = messaging.Message(
@@ -67,7 +72,13 @@ def send_message_topic():
     topic = data_json.get('topic') if data_json.get('topic') else contoh_topic
     message = data_json['message']
     title = data_json['title']
-    data = data_json['data']
+    nama = data_json['nama']
+    data = {
+        "title":title,
+        "message":message,
+        "nama":nama,
+        "topic":topic
+    }
     message = messaging.Message(
         notification=messaging.Notification(
             title=title,
