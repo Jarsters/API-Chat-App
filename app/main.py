@@ -19,25 +19,27 @@ appf = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@appf.route('/subscribe-topic', methods=['POST'])
-def subscribe():
+@appf.route('/subs-topic', methods=['POST'])
+def subscribe_topic_by_token():
     data_json = req.get_json(force=True)
-    token = data_json['token'] if data_json.get('token') else contoh_token
-    topic = data_json['topic']
+    print(data_json)
+    token = data_json['token'] if data_json['token'] else contoh_token
+    topic = data_json['topic'] if data_json['topic'] else contoh_topic
+    print(token, topic)
     resp = messaging.subscribe_to_topic(token, topic)
     print(resp.success_count)
 
-    return {"Response":resp, "Total":resp.success_count, "Status":"Success!"}
+    return {"Response": resp.success_count, "Status":"Success!"}
 
-@appf.route('/unsubscribe-topic', methods=['POST'])
-def unsubscribe():
+@appf.route('/unsubs-topic', methods=['POST'])
+def unsubscribe_topic_by_token():
     data_json = req.get_json(force=True)
-    token = data_json['token'] if data_json.get('token') else contoh_token
-    topic = data_json['topic']
+    token = data_json['token'] if data_json['token'] else contoh_token
+    topic = data_json['topic'] if data_json['topic'] else contoh_topic
     resp = messaging.unsubscribe_from_topic(token, topic)
     print(resp.success_count)
 
-    return {"Response":resp, "Total":resp.success_count, "Status":"Success!"}
+    return {"Response": resp.success_count, "Status":"Success!"}
 
 @appf.route("/send-message-token", methods=['POST'])
 def send_message_token():
@@ -51,8 +53,6 @@ def send_message_token():
         "message":message,
         "nama":nama
     }
-    # time = data_json['time']
-    # img = data_json['imagebase64']
     message = messaging.Message(
         notification=messaging.Notification(
             title=title,
